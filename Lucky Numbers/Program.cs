@@ -24,13 +24,55 @@ namespace Lucky_Numbers
                 luckyNumbers[i] = int.Parse(Console.ReadLine());
             }
 
-            if (luckyNumbers > lowDigit | luckyNumbers < highDigit)
+            if (luckyNumbers[0] > lowDigit)
+            {
+                Console.WriteLine("Please enter a valid number from within your range."); ;
+            }
+            else if (luckyNumbers[1] > lowDigit)
             {
                 Console.WriteLine("Please enter a valid number from within your range.");
             }
-            else
+            else if (luckyNumbers[2] > lowDigit)
             {
-                Console.WriteLine("");
+                Console.WriteLine("Please enter a valid number from within your range.");
+            }
+            else if (luckyNumbers[3] > lowDigit)
+            {
+                Console.WriteLine("Please enter a valid number from within your range.");
+            }
+            else if (luckyNumbers[4] > lowDigit)
+            {
+                Console.WriteLine("Please enter a valid number from within your range.");
+            }
+            else if (luckyNumbers[5] > lowDigit)
+            {
+                Console.WriteLine("Please enter a valid number from within your range.");
+            }
+
+
+            if (luckyNumbers[0] < highDigit)
+            {
+                Console.WriteLine("Please enter a valid number from within your range.");
+            }
+            else if (luckyNumbers[1] < highDigit)
+            {
+                Console.WriteLine("Please enter a valid number from within your range.");
+            }
+            else if (luckyNumbers[2] < highDigit)
+            {
+                Console.WriteLine("Please enter a valid number from within your range.");
+            }
+            else if (luckyNumbers[3] < highDigit)
+            {
+                Console.WriteLine("Please enter a valid number from within your range.");
+            }
+            else if (luckyNumbers[4] < highDigit)
+            {
+                Console.WriteLine("Please enter a valid number from within your range.");
+            }
+            else if (luckyNumbers[5] < highDigit)
+            {
+                Console.WriteLine("Please enter a valid number from within your range.");
             }
         }
     }
