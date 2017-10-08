@@ -13,66 +13,129 @@ namespace Lucky_Numbers
             Console.WriteLine("Please enter the lowest digit of your range.");
             int lowDigit = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Now please enter the highest digit of your range.");
+            Console.WriteLine("Now enter the highest digit of your range.");
             int highDigit = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Next, guess six lucky numbers from your range!");
+            Console.WriteLine("Now, please guess six numbers from within your range.");
             int[] luckyNumbers = new int[6];
-
             for (int i = 0; i < luckyNumbers.Length; i++)
             {
                 luckyNumbers[i] = int.Parse(Console.ReadLine());
             }
 
-            if (luckyNumbers[0] > lowDigit)
+
+            string numberInputLow = "Please re-enter the lowest digit of your range.";
+            string numberInputHigh = "Now, re-enter the highest digit of your range.";
+            string numberEntry = "Finally, guess six lucky numbers from within your range!";
+            string validNumber = "Please make sure the numbers you've entered are within your range";
+
+            if (luckyNumbers[0] < lowDigit | luckyNumbers[0] > highDigit)
             {
-                Console.WriteLine("Please enter a valid number from within your range."); ;
+                Console.WriteLine(validNumber);
+                Console.WriteLine(numberInputLow);
+                lowDigit = int.Parse(Console.ReadLine());
+                Console.WriteLine(numberInputHigh);
+                highDigit = int.Parse(Console.ReadLine());
+                Console.WriteLine(numberEntry);
+                luckyNumbers = new int[6];
+
+                for (int i = 0; i < luckyNumbers.Length; i++)
+                {
+                    luckyNumbers[i] = int.Parse(Console.ReadLine());
+                }
             }
-            else if (luckyNumbers[1] > lowDigit)
+            else if (luckyNumbers[1] < lowDigit | luckyNumbers[1] > highDigit)
             {
-                Console.WriteLine("Please enter a valid number from within your range.");
+                Console.WriteLine(validNumber);
+                Console.WriteLine(numberInputLow);
+                lowDigit = int.Parse(Console.ReadLine());
+                Console.WriteLine(numberInputHigh);
+                highDigit = int.Parse(Console.ReadLine());
+                Console.WriteLine(numberEntry);
+                luckyNumbers = new int[6];
+
+                for (int i = 0; i < luckyNumbers.Length; i++)
+                {
+                    luckyNumbers[i] = int.Parse(Console.ReadLine());
+                }
             }
-            else if (luckyNumbers[2] > lowDigit)
+            else if (luckyNumbers[2] < lowDigit | luckyNumbers[2] > highDigit)
             {
-                Console.WriteLine("Please enter a valid number from within your range.");
+                Console.WriteLine(validNumber);
+                Console.WriteLine(numberInputLow);
+                lowDigit = int.Parse(Console.ReadLine());
+                Console.WriteLine(numberInputHigh);
+                highDigit = int.Parse(Console.ReadLine());
+                Console.WriteLine(numberEntry);
+                luckyNumbers = new int[6];
+
+                for (int i = 0; i < luckyNumbers.Length; i++)
+                {
+                    luckyNumbers[i] = int.Parse(Console.ReadLine());
+                }
             }
-            else if (luckyNumbers[3] > lowDigit)
+            else if (luckyNumbers[3] < lowDigit | luckyNumbers[3] > highDigit)
             {
-                Console.WriteLine("Please enter a valid number from within your range.");
+                Console.WriteLine(validNumber);
+                Console.WriteLine(numberInputLow);
+                lowDigit = int.Parse(Console.ReadLine());
+                Console.WriteLine(numberInputHigh);
+                highDigit = int.Parse(Console.ReadLine());
+                Console.WriteLine(numberEntry);
+                luckyNumbers = new int[6];
+
+                for (int i = 0; i < luckyNumbers.Length; i++)
+                {
+                    luckyNumbers[i] = int.Parse(Console.ReadLine());
+                }
             }
-            else if (luckyNumbers[4] > lowDigit)
+            else if (luckyNumbers[4] < lowDigit | luckyNumbers[4] > highDigit)
             {
-                Console.WriteLine("Please enter a valid number from within your range.");
+                Console.WriteLine(validNumber);
+                Console.WriteLine(numberInputLow);
+                lowDigit = int.Parse(Console.ReadLine());
+                Console.WriteLine(numberInputHigh);
+                highDigit = int.Parse(Console.ReadLine());
+                Console.WriteLine(numberEntry);
+                luckyNumbers = new int[6];
+
+                for (int i = 0; i < luckyNumbers.Length; i++)
+                {
+                    luckyNumbers[i] = int.Parse(Console.ReadLine());
+                }
             }
-            else if (luckyNumbers[5] > lowDigit)
+            else if (luckyNumbers[5] < lowDigit | luckyNumbers[5] > highDigit)
             {
-                Console.WriteLine("Please enter a valid number from within your range.");
+                Console.WriteLine(validNumber);
+                Console.WriteLine(numberInputLow);
+                lowDigit = int.Parse(Console.ReadLine());
+                Console.WriteLine(numberInputHigh);
+                highDigit = int.Parse(Console.ReadLine());
+                Console.WriteLine(numberEntry);
+                luckyNumbers = new int[6];
+
+                for (int i = 0; i < luckyNumbers.Length; i++)
+                {
+                    luckyNumbers[i] = int.Parse(Console.ReadLine());
+                }
             }
 
+            Console.WriteLine("Press enter to reveal lucky numbers!");
+            Console.ReadKey();
 
-            if (luckyNumbers[0] < highDigit)
+            int Min = lowDigit;
+            int Max = highDigit;
+            int[] numbers = new int[6];
+
+            Random randNum = new Random();
+            for (int i = 0; i < numbers.Length; i++)
             {
-                Console.WriteLine("Please enter a valid number from within your range.");
+                numbers[i] = randNum.Next(Min, Max);
             }
-            else if (luckyNumbers[1] < highDigit)
+
+            foreach (int number in numbers)
             {
-                Console.WriteLine("Please enter a valid number from within your range.");
-            }
-            else if (luckyNumbers[2] < highDigit)
-            {
-                Console.WriteLine("Please enter a valid number from within your range.");
-            }
-            else if (luckyNumbers[3] < highDigit)
-            {
-                Console.WriteLine("Please enter a valid number from within your range.");
-            }
-            else if (luckyNumbers[4] < highDigit)
-            {
-                Console.WriteLine("Please enter a valid number from within your range.");
-            }
-            else if (luckyNumbers[5] < highDigit)
-            {
-                Console.WriteLine("Please enter a valid number from within your range.");
+                Console.WriteLine("Lucky number: " + number);
             }
         }
     }
