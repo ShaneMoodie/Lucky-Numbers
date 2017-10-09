@@ -10,6 +10,12 @@ namespace Lucky_Numbers
     {
         static void Main(string[] args)
         {
+
+            //User prompt and input
+            Console.WriteLine("Welcome to the lucky number lottery! The current jackpot is $1,000,000!\nPress ENTER to continue.");
+            Console.ReadKey();
+            while (Console.ReadKey().Key != ConsoleKey.Enter) ;
+
             Console.WriteLine("Please enter the lowest digit of your range.");
             int lowDigit = int.Parse(Console.ReadLine());
 
@@ -23,12 +29,21 @@ namespace Lucky_Numbers
                 luckyNumbers[i] = int.Parse(Console.ReadLine());
             }
 
-
+            //Some string/int declaration
+            int[] score = new int[7];
+            int jackpot = 1000000;
+            double correct1 = (jackpot * .1667);
+            double correct2 = (jackpot * .33);
+            double correct3 = (jackpot * .5);
+            double correct4 = (jackpot * .66);
+            double correct5 = (jackpot * .83);
             string numberInputLow = "Please re-enter the lowest digit of your range.";
             string numberInputHigh = "Now, re-enter the highest digit of your range.";
             string numberEntry = "Finally, guess six lucky numbers from within your range!";
             string validNumber = "Please make sure the numbers you've entered are within your range";
 
+
+            //Conditional regarding numbers below and above user defined range
             if (luckyNumbers[0] < lowDigit | luckyNumbers[0] > highDigit)
             {
                 Console.WriteLine(validNumber);
@@ -120,8 +135,10 @@ namespace Lucky_Numbers
                 }
             }
 
+            //Random number generator
             Console.WriteLine("Press enter to reveal lucky numbers!");
             Console.ReadKey();
+            while (Console.ReadKey().Key != ConsoleKey.Enter) ;
 
             int Min = lowDigit;
             int Max = highDigit;
@@ -137,6 +154,24 @@ namespace Lucky_Numbers
             {
                 Console.WriteLine("Lucky number: " + number);
             }
+
+            if (numbers == luckyNumbers)
+            {
+                Console.WriteLine("");
+            }
+            Console.WriteLine("Press ENTER to see your results!");
+            while (Console.ReadKey().Key != ConsoleKey.Enter) ;
+
+            if (Enumerable.SequenceEqual(numbers, luckyNumbers))
+            {
+                Console.WriteLine("Congradulations! You won the $1,000,000 JACKPOT!");
+            }
+            else if (numbers != luckyNumbers)
+            {
+                Console.WriteLine("YOU LOSE!");
+            }
+
+
         }
     }
 }
