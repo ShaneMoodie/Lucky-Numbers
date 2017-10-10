@@ -13,7 +13,6 @@ namespace Lucky_Numbers
 
             //User prompt and input
             Console.WriteLine("Welcome to the lucky number lottery! The current jackpot is $1,000,000!\nPress ENTER to continue.");
-            Console.ReadKey();
             while (Console.ReadKey().Key != ConsoleKey.Enter) ;
 
             Console.WriteLine("Please enter the lowest digit of your range.");
@@ -30,7 +29,6 @@ namespace Lucky_Numbers
             }
 
             //Some string/int declaration
-            int[] score = new int[7];
             int jackpot = 1000000;
             double correct1 = (jackpot * .1667);
             double correct2 = (jackpot * .33);
@@ -44,7 +42,10 @@ namespace Lucky_Numbers
 
 
             //Conditional regarding numbers below and above user defined range
-            if (luckyNumbers[0] < lowDigit | luckyNumbers[0] > highDigit)
+                 if (luckyNumbers[0] < lowDigit | luckyNumbers[1] < lowDigit | luckyNumbers[2] < lowDigit |
+                luckyNumbers[3] < lowDigit | luckyNumbers[4] < lowDigit | luckyNumbers[5] < lowDigit|
+                luckyNumbers[0] > highDigit | luckyNumbers[1] > highDigit | luckyNumbers[2] > highDigit |
+                luckyNumbers[3] > highDigit | luckyNumbers[4] > highDigit | luckyNumbers[5] > highDigit)
             {
                 Console.WriteLine(validNumber);
                 Console.WriteLine(numberInputLow);
@@ -59,87 +60,14 @@ namespace Lucky_Numbers
                     luckyNumbers[i] = int.Parse(Console.ReadLine());
                 }
             }
-            else if (luckyNumbers[1] < lowDigit | luckyNumbers[1] > highDigit)
-            {
-                Console.WriteLine(validNumber);
-                Console.WriteLine(numberInputLow);
-                lowDigit = int.Parse(Console.ReadLine());
-                Console.WriteLine(numberInputHigh);
-                highDigit = int.Parse(Console.ReadLine());
-                Console.WriteLine(numberEntry);
-                luckyNumbers = new int[6];
 
-                for (int i = 0; i < luckyNumbers.Length; i++)
-                {
-                    luckyNumbers[i] = int.Parse(Console.ReadLine());
-                }
-            }
-            else if (luckyNumbers[2] < lowDigit | luckyNumbers[2] > highDigit)
-            {
-                Console.WriteLine(validNumber);
-                Console.WriteLine(numberInputLow);
-                lowDigit = int.Parse(Console.ReadLine());
-                Console.WriteLine(numberInputHigh);
-                highDigit = int.Parse(Console.ReadLine());
-                Console.WriteLine(numberEntry);
-                luckyNumbers = new int[6];
 
-                for (int i = 0; i < luckyNumbers.Length; i++)
-                {
-                    luckyNumbers[i] = int.Parse(Console.ReadLine());
-                }
-            }
-            else if (luckyNumbers[3] < lowDigit | luckyNumbers[3] > highDigit)
-            {
-                Console.WriteLine(validNumber);
-                Console.WriteLine(numberInputLow);
-                lowDigit = int.Parse(Console.ReadLine());
-                Console.WriteLine(numberInputHigh);
-                highDigit = int.Parse(Console.ReadLine());
-                Console.WriteLine(numberEntry);
-                luckyNumbers = new int[6];
-
-                for (int i = 0; i < luckyNumbers.Length; i++)
-                {
-                    luckyNumbers[i] = int.Parse(Console.ReadLine());
-                }
-            }
-            else if (luckyNumbers[4] < lowDigit | luckyNumbers[4] > highDigit)
-            {
-                Console.WriteLine(validNumber);
-                Console.WriteLine(numberInputLow);
-                lowDigit = int.Parse(Console.ReadLine());
-                Console.WriteLine(numberInputHigh);
-                highDigit = int.Parse(Console.ReadLine());
-                Console.WriteLine(numberEntry);
-                luckyNumbers = new int[6];
-
-                for (int i = 0; i < luckyNumbers.Length; i++)
-                {
-                    luckyNumbers[i] = int.Parse(Console.ReadLine());
-                }
-            }
-            else if (luckyNumbers[5] < lowDigit | luckyNumbers[5] > highDigit)
-            {
-                Console.WriteLine(validNumber);
-                Console.WriteLine(numberInputLow);
-                lowDigit = int.Parse(Console.ReadLine());
-                Console.WriteLine(numberInputHigh);
-                highDigit = int.Parse(Console.ReadLine());
-                Console.WriteLine(numberEntry);
-                luckyNumbers = new int[6];
-
-                for (int i = 0; i < luckyNumbers.Length; i++)
-                {
-                    luckyNumbers[i] = int.Parse(Console.ReadLine());
-                }
-            }
 
             //Random number generator
             Console.WriteLine("Press enter to reveal lucky numbers!");
-            Console.ReadKey();
             while (Console.ReadKey().Key != ConsoleKey.Enter) ;
 
+            int score = 0;
             int Min = lowDigit;
             int Max = highDigit;
             int[] numbers = new int[6];
@@ -162,14 +90,23 @@ namespace Lucky_Numbers
             Console.WriteLine("Press ENTER to see your results!");
             while (Console.ReadKey().Key != ConsoleKey.Enter) ;
 
-            if (Enumerable.SequenceEqual(numbers, luckyNumbers))
+
+            //Compre answers w/ random numbers
+            foreach (int number in numbers)
             {
-                Console.WriteLine("Congradulations! You won the $1,000,000 JACKPOT!");
+                if (luckyNumbers.Contains(number))
+                {
+                   score++; 
+                }
             }
-            else if (numbers != luckyNumbers)
-            {
-                Console.WriteLine("YOU LOSE!");
-            }
+
+            Console.WriteLine("You guessed " + score + " correctly!");
+            Console.WriteLine("Press ENTER to continue...");
+            while (Console.ReadKey().Key != ConsoleKey.Enter) ;
+
+            //Play again sequence
+            Console.WriteLine("W");
+
 
 
         }
