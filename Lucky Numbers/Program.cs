@@ -10,6 +10,7 @@ namespace Lucky_Numbers
     {
         static void Main(string[] args)
         {
+            beginning: 
 
             //User prompt and input
             Console.WriteLine("Welcome to the lucky number lottery! The current jackpot is $1,000,000!\nPress ENTER to continue.");
@@ -101,14 +102,50 @@ namespace Lucky_Numbers
             }
 
             Console.WriteLine("You guessed " + score + " correctly!");
+            if (score == 0)
+            {
+                Console.WriteLine("Sorry! You don't win anything...");
+            }
+            else if (score == 1)
+            {
+                Console.WriteLine("You win $" + correct1);
+            }
+            else if (score == 2)
+            {
+                Console.WriteLine("You win $" + correct2);
+            }
+            else if (score == 3)
+            {
+                Console.WriteLine("You win $" + correct3);
+            }
+            else if (score == 4)
+            {
+                Console.WriteLine("You win $" + correct4);
+            }
+            else if (score == 5)
+            {
+                Console.WriteLine("You win $" + correct5);
+            }
+            else if (score == 6)
+            {
+                Console.WriteLine("Congradulations! You win the $" + jackpot + " jackpot!");
+            }
             Console.WriteLine("Press ENTER to continue...");
             while (Console.ReadKey().Key != ConsoleKey.Enter) ;
 
             //Play again sequence
-            Console.WriteLine("W");
+            Console.WriteLine("Would you like to play again? [YES/NO]");
+            string yesNo = Console.ReadLine().ToUpper();
 
-
-
+            if (yesNo == "YES")
+            {
+                goto beginning;
+            }
+            else if (yesNo == "NO")
+            {
+                Console.WriteLine("Thanks for playing!");
+                Environment.Exit(0);               
+            }
         }
     }
 }
